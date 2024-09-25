@@ -1,6 +1,13 @@
 import random
 import numpy as np
 import datetime
+import os
+
+dir="C:/Users/antho/OneDrive/Desktop/Ventas"
+
+if not os.path.exists(dir):
+    os.makedirs(dir)
+
 
 fecha_actual=datetime.datetime.now()
 
@@ -18,6 +25,11 @@ productos_mostrados = set()
 productos_no_mostrados_max=3
 
 impresion_de_fecha=f"Ventas {fecha_actual.day}-{fecha_actual.month}-{fecha_actual.year}"
+
+nombreArchivo= f"{impresion_de_fecha}.txt"
+rutaCompleta=os.path.join(dir,nombreArchivo)
+
+open(rutaCompleta,"w")
 
 if(fecha_actual.strftime('%A')=="Sunday"):
     matriz_Locales_Modificado=["petcory"]
